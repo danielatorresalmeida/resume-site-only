@@ -1,0 +1,114 @@
+/* === Theme variables === */
+/* Default to dark */
+:root {
+  --bg: #0b0c10;
+  --panel: #12141a;
+  --text: #e9ebf0;
+  --muted:#9aa3b2;
+  --accent:#6b7bff;
+  --border:#1d2230;
+  --paper:#ffffff; /* print */
+}
+
+/* Force LIGHT when data-theme="light" */
+:root[data-theme="light"] {
+  --bg:#ffffff;
+  --panel:#f6f7fb;
+  --text:#13151a;
+  --muted:#5a6578;
+  --accent:#4f5dff;
+  --border:#e5e7ef;
+}
+
+/* Force DARK when data-theme="dark"] (optional, keeps intent explicit) */
+:root[data-theme="dark"] {
+  --bg: #0b0c10;
+  --panel: #12141a;
+  --text: #e9ebf0;
+  --muted:#9aa3b2;
+  --accent:#6b7bff;
+  --border:#1d2230;
+}
+
+/* Optional: respect system preference WHEN no data-theme is set */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg:#ffffff;
+    --panel:#f6f7fb;
+    --text:#13151a;
+    --muted:#5a6578;
+    --accent:#4f5dff;
+    --border:#e5e7ef;
+  }
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.55;
+}
+
+.container{max-width:980px;margin:0 auto;padding:0 18px}
+.topbar{
+  position:sticky;top:0;z-index:10;
+  background:rgba(12,14,20,.8);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.topbar .topbar-inner{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 0}
+.name{margin:0;font-size:clamp(22px,4vw,30px)}
+.meta{margin:.2rem 0 0;color:var(--muted);font-size:.95rem}
+.meta a{color:var(--text);text-decoration:none;border-bottom:1px dotted var(--muted)}
+.actions{display:flex;gap:8px}
+.btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--accent);color:#fff;font-weight:600}
+.btn.ghost{background:transparent;color:var(--text)}
+
+/* Make header match the light gray cards in LIGHT mode */
+:root[data-theme="light"] .topbar {
+  background: var(--panel) !important;         /* = #f6f7fb */
+  border-bottom: 1px solid var(--border) !important; /* = #e5e7ef */
+  box-shadow: 0 2px 6px var(--border);         /* subtle shadow like the boxes */
+  backdrop-filter: none;                       /* avoid darkening tint in light mode */
+}
+
+:root[data-theme="dark"] .topbar { box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+
+.resume{display:grid;gap:18px;margin:22px auto}
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+}
+.highlight{border-color:var(--accent)}
+
+.intro p{margin:.4rem 0 0}
+
+.two-col{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:900px){
+  .two-col{grid-template-columns:1fr 1fr}
+}
+h2{margin:.2rem 0 1rem;font-size:1.2rem}
+h3{margin:.2rem 0 .4rem;font-size:1.05rem}
+h4{margin:.8rem 0 .2rem;font-size:.95rem;color:var(--muted)}
+.when,.where{color:var(--muted);font-size:.9rem}
+.item{margin:0 0 10px}
+ul{margin:.4rem 0 .4rem 1.1rem}
+ul.flat{list-style:disc;margin:.2rem 0 .4rem 1.1rem}
+.footer{padding:30px 0;color:var(--muted);text-align:center;border-top:1px solid var(--border)}
+
+/* PRINT (one clean page if content fits) */
+@media print{
+  :root{
+    --bg:var(--paper); --panel:var(--paper); --text:#111; --muted:#555; --border:#ddd;
+  }
+  body{background:var(--paper)}
+  .topbar, .actions, #theme-toggle, #print-btn { display:none !important; }
+  .container{max-width:800px}
+  .card{border:0;padding:0}
+  .resume{gap:10px}
+  a{color:#111;text-decoration:none}
+}
