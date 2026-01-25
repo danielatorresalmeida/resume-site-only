@@ -8,6 +8,7 @@
   --accent:#6b7bff;
   --border:#1d2230;
   --paper:#ffffff; /* print */
+  --topbar-height:74px;
 }
 
 /* Force LIGHT when data-theme="light" */
@@ -50,12 +51,14 @@ body{
   color:var(--text);
   background:var(--bg);
   line-height:1.55;
+  padding-top:var(--topbar-height);
 }
 
 .container{max-width:980px;margin:0 auto;padding:0 18px}
 .topbar{
-  position:sticky;top:0;z-index:10;
-  background:rgba(12,14,20,.8);backdrop-filter:blur(8px);
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  background:rgba(12,14,20,.8);
+  backdrop-filter:blur(8px);
   border-bottom:1px solid var(--border);
 }
 .topbar .topbar-inner{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 0}
@@ -136,7 +139,7 @@ ul.flat{list-style:disc;margin:.2rem 0 .4rem 1.1rem}
   :root{
     --bg:var(--paper); --panel:var(--paper); --text:#111; --muted:#555; --border:#ddd;
   }
-  body{background:var(--paper)}
+  body{background:var(--paper);padding-top:0}
   .topbar, .actions, #theme-toggle, #print-btn { display:none !important; }
   .container{max-width:800px}
   .card{border:0;padding:0}
