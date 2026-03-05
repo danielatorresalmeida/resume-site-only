@@ -25,7 +25,7 @@ jobs:
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          path: "./resume-site-only"
 
   deploy:
     environment:
