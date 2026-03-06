@@ -93,6 +93,11 @@ body{
   font-weight:700;
 }
 .pill-btn .pill-label{font-size:.95rem;letter-spacing:.02em;}
+.pill-btn.lang-toggle{
+  width:auto;
+  min-width:82px;
+  padding:0 12px;
+}
 .pill-btn .icon{width:22px;height:22px;display:block;}
 :root[data-theme="light"] .pill-btn{border-color:#d8dff1;box-shadow:0 6px 14px rgba(0,0,0,.12);}
 :root[data-theme="dark"] .pill-btn{border-color:#1c2435;box-shadow:0 10px 22px rgba(0,0,0,.32);}
