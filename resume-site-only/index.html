@@ -21,6 +21,29 @@
         </p>
       </div>
       <div class="actions">
+        <button id="print-btn" class="pill-btn solid" type="button" aria-label="Download CV">
+          <span class="pill-label">CV</span>
+        </button>
+        <button id="lang-toggle" class="pill-btn ghost lang-toggle" type="button" aria-label="Switch language to European Portuguese">
+          <span class="pill-label">PT-PT</span>
+        </button>
+        <button id="theme-toggle" class="pill-btn ghost" type="button" aria-label="Toggle theme">
+          <span class="sr-only">Toggle theme</span>
+          <svg class="icon icon-cloud" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="100%" stop-color="#dfe8ff" />
+              </linearGradient>
+              <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#bcc6ff" />
+                <stop offset="100%" stop-color="#7d8fff" />
+              </linearGradient>
+            </defs>
+            <path d="M15.8 4.4a5.6 5.6 0 0 0-5.42 4.2A4.8 4.8 0 0 0 6 13.3 4.7 4.7 0 0 0 10.7 18H17a4.3 4.3 0 0 0 0-8.6h-.26a5.6 5.6 0 0 0-.94-4.99z" fill="url(#cloudGradient)" />
+            <path d="M14.6 4.1a4.4 4.4 0 0 1 3.7 3.46c-1.06-.35-2.2-.25-3.24.29a4.4 4.4 0 0 1-2.18 5.83 4.4 4.4 0 0 1-3.38-.05 5.6 5.6 0 0 1 5.1-9.53z" fill="url(#moonGradient)" opacity="0.85" />
+          </svg>
+        </button>
         <a class="pill-btn ghost" href="https://danielatorresalmeida.github.io/Portfolio-website/#home" aria-label="Back to portfolio home">
           <span class="sr-only">Back to portfolio home</span>
           <svg class="icon icon-home" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -39,29 +62,6 @@
             <path d="M11 14.1h2a.9.9 0 0 1 .9.9v3h-3.8v-3a.9.9 0 0 1 .9-.9z" fill="#ffffff" opacity="0.9" />
           </svg>
         </a>
-        <button id="theme-toggle" class="pill-btn ghost" type="button" aria-label="Toggle theme">
-          <span class="sr-only">Toggle theme</span>
-          <svg class="icon icon-cloud" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <defs>
-              <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff" />
-                <stop offset="100%" stop-color="#dfe8ff" />
-              </linearGradient>
-              <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#bcc6ff" />
-                <stop offset="100%" stop-color="#7d8fff" />
-              </linearGradient>
-            </defs>
-            <path d="M15.8 4.4a5.6 5.6 0 0 0-5.42 4.2A4.8 4.8 0 0 0 6 13.3 4.7 4.7 0 0 0 10.7 18H17a4.3 4.3 0 0 0 0-8.6h-.26a5.6 5.6 0 0 0-.94-4.99z" fill="url(#cloudGradient)" />
-            <path d="M14.6 4.1a4.4 4.4 0 0 1 3.7 3.46c-1.06-.35-2.2-.25-3.24.29a4.4 4.4 0 0 1-2.18 5.83 4.4 4.4 0 0 1-3.38-.05 5.6 5.6 0 0 1 5.1-9.53z" fill="url(#moonGradient)" opacity="0.85" />
-          </svg>
-        </button>
-        <button id="lang-toggle" class="pill-btn ghost lang-toggle" type="button" aria-label="Switch language to European Portuguese">
-          <span class="pill-label">PT-PT</span>
-        </button>
-        <button id="print-btn" class="pill-btn solid" type="button" aria-label="Download CV">
-          <span class="pill-label">CV</span>
-        </button>
       </div>
     </div>
   </header>
@@ -128,22 +128,56 @@
         </article>
       </div>
 
-      <div class="col card">
-        <h2>Skills</h2>
-        <h4>Programming &amp; Development</h4>
-        <p>Python (FastAPI, boto3) · JavaScript (ES6+, TypeScript) · PHP · HTML5 · CSS3 · WordPress</p>
-
-        <h4>QA &amp; Testing</h4>
-        <p>Functional &amp; Non-functional · Unit, Integration, System, Acceptance · Test Case Design · Bug Reporting</p>
-
-        <h4>Cloud &amp; DevOps</h4>
-        <p>AWS (Lambda, S3, API Gateway, IAM, CloudWatch) · Docker · Git/GitHub · CI/CD (GitHub Actions)</p>
-
-        <h4>Tools &amp; Frameworks</h4>
-        <p>Postman · Pytest · Microsoft Word &amp; Excel</p>
-
-        <h4>Languages</h4>
-        <p>Portuguese (Native) · English (Fluent)</p>
+            <div class="col card skills-organized">
+        <h2>Technical Skills</h2>
+        <div class="skills-cards">
+          <article class="skill-group-card">
+            <h4>Frontend Development</h4>
+            <ul class="flat skill-points">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>React</li>
+              <li>Next.js</li>
+            </ul>
+          </article>
+          <article class="skill-group-card">
+            <h4>Design &amp; Layout</h4>
+            <ul class="flat skill-points">
+              <li>UI/UX Design</li>
+              <li>Responsive Design</li>
+              <li>Wireframing</li>
+              <li>Accessibility (WCAG)</li>
+              <li>Component Systems</li>
+            </ul>
+          </article>
+          <article class="skill-group-card">
+            <h4>Tools &amp; Workflows</h4>
+            <ul class="flat skill-points">
+              <li>Git / GitHub</li>
+              <li>GitHub Actions</li>
+              <li>QA Testing</li>
+              <li>Postman</li>
+              <li>Python Automation</li>
+              <li>Supabase</li>
+            </ul>
+          </article>
+        </div>
+        <div class="skill-key-card">
+          <h4>Key Skills</h4>
+          <div class="skill-tags" id="key-skills-tags">
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Next.js</span>
+            <span>UI/UX Design</span>
+            <span>Responsive Design</span>
+            <span>QA Testing</span>
+            <span>API Testing</span>
+            <span>GitHub Actions</span>
+            <span>Python</span>
+            <span>Supabase</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -210,3 +244,4 @@
   <script src="script.js" defer></script>
 </body>
 </html>
+

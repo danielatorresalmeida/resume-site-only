@@ -78,28 +78,33 @@ const translations = {
         ],
       },
     ],
-    skillsTitle: "Skills",
+        skillsTitle: "Technical Skills",
     skillGroups: [
       {
-        title: "Programming & Development",
-        text: "Python (FastAPI, boto3) 路 JavaScript (ES6+, TypeScript) 路 PHP 路 HTML5 路 CSS3 路 WordPress",
+        title: "Frontend Development",
+        items: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Next.js"],
       },
       {
-        title: "QA & Testing",
-        text: "Functional & Non-functional 路 Unit, Integration, System, Acceptance 路 Test Case Design 路 Bug Reporting",
+        title: "Design & Layout",
+        items: ["UI/UX Design", "Responsive Design", "Wireframing", "Accessibility (WCAG)", "Component Systems"],
       },
       {
-        title: "Cloud & DevOps",
-        text: "AWS (Lambda, S3, API Gateway, IAM, CloudWatch) 路 Docker 路 Git/GitHub 路 CI/CD (GitHub Actions)",
+        title: "Tools & Workflows",
+        items: ["Git / GitHub", "GitHub Actions", "QA Testing", "Postman", "Python Automation", "Supabase"],
       },
-      {
-        title: "Tools & Frameworks",
-        text: "Postman 路 Pytest 路 Microsoft Word & Excel",
-      },
-      {
-        title: "Languages",
-        text: "Portuguese (Native) 路 English (Fluent)",
-      },
+    ],
+    keySkillsTitle: "Key Skills",
+    keySkills: [
+      "JavaScript",
+      "React",
+      "Next.js",
+      "UI/UX Design",
+      "Responsive Design",
+      "QA Testing",
+      "API Testing",
+      "GitHub Actions",
+      "Python",
+      "Supabase",
     ],
     projectsTitle: "Projects",
     projectItems: [
@@ -193,28 +198,33 @@ const translations = {
         ],
       },
     ],
-    skillsTitle: "Compet锚ncias",
+        skillsTitle: "Compet阯cias T閏nicas",
     skillGroups: [
       {
-        title: "Programa莽茫o e Desenvolvimento",
-        text: "Python (FastAPI, boto3) 路 JavaScript (ES6+, TypeScript) 路 PHP 路 HTML5 路 CSS3 路 WordPress",
+        title: "Desenvolvimento Front-End",
+        items: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Next.js"],
       },
       {
-        title: "QA e Testes",
-        text: "Funcionais e N茫o Funcionais 路 Unit, Integration, System e Acceptance Testing 路 Conce莽茫o de Casos de Teste 路 Reporte de Bugs",
+        title: "Design e Layout",
+        items: ["Design UI/UX", "Design Responsivo", "Wireframing", "Acessibilidade (WCAG)", "Sistemas de Componentes"],
       },
       {
-        title: "Cloud e DevOps",
-        text: "AWS (Lambda, S3, API Gateway, IAM, CloudWatch) 路 Docker 路 Git/GitHub 路 CI/CD (GitHub Actions)",
+        title: "Ferramentas e Fluxos",
+        items: ["Git / GitHub", "GitHub Actions", "Testes de QA", "Postman", "Automa玢o com Python", "Supabase"],
       },
-      {
-        title: "Ferramentas e Frameworks",
-        text: "Postman 路 Pytest 路 Microsoft Word e Excel",
-      },
-      {
-        title: "Idiomas",
-        text: "Portugu锚s (Nativo) 路 Ingl锚s (Fluente)",
-      },
+    ],
+    keySkillsTitle: "Compet阯cias-chave",
+    keySkills: [
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Design UI/UX",
+      "Design Responsivo",
+      "Testes de QA",
+      "Testes de API",
+      "GitHub Actions",
+      "Python",
+      "Supabase",
     ],
     projectsTitle: "Projetos",
     projectItems: [
@@ -314,13 +324,35 @@ function renderResumeText() {
 
   const skillsTitle = skillsCol?.querySelector("h2");
   setText(skillsTitle, t("skillsTitle"));
-  const skillHeadings = skillsCol?.querySelectorAll("h4") || [];
-  const skillParagraphs = skillsCol?.querySelectorAll("p") || [];
+  const skillCards = skillsCol?.querySelectorAll(".skill-group-card") || [];
   const translatedSkills = t("skillGroups");
-  translatedSkills.forEach((group, index) => {
-    setText(skillHeadings[index], group.title);
-    setText(skillParagraphs[index], group.text);
+  skillCards.forEach((card, index) => {
+    const group = translatedSkills[index];
+    if (!group) return;
+    setText(card.querySelector("h4"), group.title);
+    const list = card.querySelector(".skill-points");
+    if (!list) return;
+    list.innerHTML = "";
+    const items = Array.isArray(group.items) ? group.items : [];
+    items.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
   });
+
+  const keySkillsHeading = skillsCol?.querySelector(".skill-key-card h4");
+  setText(keySkillsHeading, t("keySkillsTitle"));
+  const keySkillsWrap = skillsCol?.querySelector("#key-skills-tags");
+  if (keySkillsWrap) {
+    keySkillsWrap.innerHTML = "";
+    const keySkills = t("keySkills");
+    keySkills.forEach((item) => {
+      const chip = document.createElement("span");
+      chip.textContent = item;
+      keySkillsWrap.appendChild(chip);
+    });
+  }
 
   const projectsTitle = projectsCol?.querySelector("h2");
   setText(projectsTitle, t("projectsTitle"));
@@ -409,3 +441,4 @@ langToggle?.addEventListener("click", () => {
 printButton?.addEventListener("click", () => window.print());
 
 applyLanguage(currentLanguage);
+
