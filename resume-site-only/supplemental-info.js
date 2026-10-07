@@ -5,7 +5,6 @@
   const section = document.getElementById("supplemental-info");
   if (!section) return;
 
-  const metaNode = document.querySelector(".identity .meta");
   const langToggle = document.getElementById("lang-toggle");
 
   const leftTitleNode = section.querySelector("[data-supp-left-title]");
@@ -14,43 +13,37 @@
   const rightItemNodes = section.querySelectorAll("[data-supp-right-item]");
 
   const translations = {
-    en: {
-      metaLine:
-        "Cascais, Portugal · +351 962046821 · <a href=\"mailto:danielarosadolealtorresalmeida@gmail.com\">danielarosadolealtorresalmeida@gmail.com</a> · <a href=\"https://danielatorresalmeida.github.io/Portfolio-website/\" target=\"_blank\" rel=\"noopener\">portfolio website</a> · <a href=\"https://github.com/danielatorresalmeida\" target=\"_blank\" rel=\"noopener\">github.com/danielatorresalmeida</a>",
-      leftTitle: "Additional Information",
-      leftItems: [
-        "<strong>Phone:</strong> +351 962046821.",
-        "<strong>Education:</strong> 12th Grade, Secretarial &amp; Administrative Work (Secondary Education, Level 3).",
-        "<strong>Languages:</strong> Portuguese (native) and English (oral, written, reading: very good).",
-        "<strong>Driver's License:</strong> Light Vehicles.",
-      ],
-      rightTitle: "Availability, Preferences & Interests",
-      rightItems: [
-        "<strong>Availability:</strong> Immediate availability, full-time work.",
-        "<strong>Work Preferences:</strong> Fixed-term contract, daytime schedule.",
-        "<strong>Mobility:</strong> Available to travel and relocate within Portugal.",
-        "<strong>Professional Interests:</strong> Web Developer, Front-End Developer.",
-      ],
-    },
-    pt: {
-      metaLine:
-        "Cascais, Portugal · +351 962046821 · <a href=\"mailto:danielarosadolealtorresalmeida@gmail.com\">danielarosadolealtorresalmeida@gmail.com</a> · <a href=\"https://danielatorresalmeida.github.io/Portfolio-website/\" target=\"_blank\" rel=\"noopener\">website do portefólio</a> · <a href=\"https://github.com/danielatorresalmeida\" target=\"_blank\" rel=\"noopener\">github.com/danielatorresalmeida</a>",
-      leftTitle: "Informação Adicional",
-      leftItems: [
-        "<strong>Telefone:</strong> +351 962046821.",
-        "<strong>Formação:</strong> 12.º Ano, Secretariado e Trabalho Administrativo (Ensino Secundário, Nível 3).",
-        "<strong>Idiomas:</strong> Português (língua materna) e Inglês (oral, escrita e leitura: muito bom).",
-        "<strong>Carta de Condução:</strong> Ligeiros.",
-      ],
-      rightTitle: "Disponibilidade, Preferências e Interesses",
-      rightItems: [
-        "<strong>Disponibilidade:</strong> imediata e para trabalho a tempo completo.",
-        "<strong>Preferências de Trabalho:</strong> contrato a termo certo e horário diurno.",
-        "<strong>Mobilidade:</strong> disponibilidade para viajar e mobilidade geográfica em Portugal.",
-        "<strong>Áreas de Interesse:</strong> Web Developer e Front-End Developer.",
-      ],
-    },
-  };
+  "en": {
+    "leftTitle": "Additional Information",
+    "leftItems": [
+      "<strong>Phone:</strong> +351 962046821.",
+      "<strong>Education:</strong> 12th Grade, Secretarial &amp; Administrative Work (Secondary Education, Level 3).",
+      "<strong>Languages:</strong> Portuguese - Native; English - Very good spoken and written command.",
+      "<strong>Driver’s licence:</strong> Light vehicles."
+    ],
+    "rightTitle": "FPCT & Professional Interests",
+    "rightItems": [
+      "<strong>FPCT:</strong> Seeking a 400-hour curricular FPCT in Software Development from 1 March to 20 May 2027.",
+      "<strong>Career goal:</strong> Progression into a Junior Software Developer position, if possible.",
+      "<strong>Professional interests:</strong> Software Development, Full-Stack Development, Front-End Development, Back-End / APIs, Automation and Applied AI."
+    ]
+  },
+  "pt": {
+    "leftTitle": "Informação Adicional",
+    "leftItems": [
+      "<strong>Telefone:</strong> +351 962046821.",
+      "<strong>Formação:</strong> 12.º Ano, Secretariado e Trabalho Administrativo (Ensino Secundário, Nível 3).",
+      "<strong>Idiomas:</strong> Português - Língua materna; Inglês - Muito bom domínio oral e escrito.",
+      "<strong>Carta de condução:</strong> Ligeiros."
+    ],
+    "rightTitle": "FPCT e Interesses Profissionais",
+    "rightItems": [
+      "<strong>FPCT:</strong> Procuro uma FPCT curricular de 400 horas em Desenvolvimento de Software, de 1 de março a 20 de maio de 2027.",
+      "<strong>Objetivo profissional:</strong> Progressão para uma função de Junior Software Developer, se possível.",
+      "<strong>Interesses profissionais:</strong> Desenvolvimento de Software, Desenvolvimento Full-Stack, Desenvolvimento Front-End, Back-End / APIs, Automação e IA Aplicada."
+    ]
+  }
+};
 
   function getLanguage() {
     return localStorage.getItem(LANGUAGE_KEY) === LANG_PT ? "pt" : "en";
@@ -60,7 +53,6 @@
     const lang = getLanguage();
     const t = translations[lang];
 
-    if (metaNode) metaNode.innerHTML = t.metaLine;
     if (leftTitleNode) leftTitleNode.textContent = t.leftTitle;
     if (rightTitleNode) rightTitleNode.textContent = t.rightTitle;
 

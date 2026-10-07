@@ -782,3 +782,11 @@ ul.flat.skill-points li:last-child {
     text-decoration: none;
   }
 }
+
+/* Readability for the updated CV content. */
+.professional-title { font-weight: 700; color: var(--text); margin-bottom: 1rem !important; }
+.project-source { color: var(--text); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.certifications-card li + li { margin-top: 0.8rem; }
+.resume::before { left: 0; right: 0; }
+@media (max-width: 620px) { .topbar { position: relative; } }
