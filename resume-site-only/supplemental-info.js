@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const LANGUAGE_KEY = "resume-language";
   const LANG_PT = "pt-PT";
 
